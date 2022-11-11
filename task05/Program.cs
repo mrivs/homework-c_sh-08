@@ -7,7 +7,7 @@
 10 09 08 07
 /*/
 
-int[,] matrix = CreateMatrix(4, 4);
+int[,] matrix = CreateMatrix(5, 4);
 SetSpiral(matrix);
 PrintMatrix(matrix);
 
