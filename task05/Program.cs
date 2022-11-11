@@ -7,7 +7,7 @@
 10 09 08 07
 /*/
 
-int[,] matrix = CreateMatrix(3, 7);
+int[,] matrix = CreateMatrix(3, 3);
 
 int length = matrix.GetLength(1);
 int height = matrix.GetLength(0);
@@ -15,9 +15,7 @@ int height = matrix.GetLength(0);
 int[] position = { 0, 0 };
 int hor = length - 1;
 int ver = height - 1;
-
 int count = hor*ver; 
-
 int value = 01;
 
 matrix[0, 0] = value;
@@ -80,6 +78,7 @@ while (count > 0)
     if (count<1) break;
 }
 PrintMatrix(matrix);
+
 void MoveRight(int[] position)
 {
     position[1]++;
@@ -96,15 +95,6 @@ void MoveDown(int[] position)
 {
     position[0]++;
 }
-void LineRight(int[] position, int steps, int value, int[,] matrix)
-{
-    for (int i = 0; i < steps; i++)
-    {
-        matrix[position[0], position[1]] = value;
-        value++;
-    }
-}
-
 
 int[,] CreateMatrix(int m, int n) // создаем матрицу
 {
