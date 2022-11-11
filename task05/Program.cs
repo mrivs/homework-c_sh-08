@@ -16,7 +16,7 @@ void SetSpiral(int[,] matrix)
     int[] position = { 0, 0 };
     int hor = matrix.GetLength(1);
     int ver = matrix.GetLength(0);
-    int count = (hor) * (ver);
+    int count = hor*ver;
     int value = 01;
     bool firsttime = true;
 
