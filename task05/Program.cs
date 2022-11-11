@@ -15,55 +15,50 @@ void SetSpiral(int[,] matrix)
 {
     int[] position = { 0, 0 };
     int hor = matrix.GetLength(1);
-    int ver = matrix.GetLength(0); 
-    int count = hor * ver;
+    int ver = matrix.GetLength(0);
+    int count = (hor) * (ver);
     int value = 01;
-    
-    for (int i = 0; i < hor; i++)
-    {
-        MoveRight(position);
-        matrix[position[0], position[1]] = value;
-        value++;
-    }
-    for (int i = 0; i < ver; i++)
-    {
-        MoveDown(position);
-        matrix[position[0], position[1]] = value;
-        value++;
-    }
-    ver--;
+    bool firsttime = true;
 
     while (count > 0)
     {
-        for (int i = 0; i < hor; i++)
+        for (int i = 0; i < hor - 1; i++)
         {
-            MoveLeft(position);
             SetValue();
-        }
-        hor--;
-        if (count < 1) break;
-        for (int i = 0; i < ver; i++)
-        {
-            MoveUp(position);
-            SetValue();
-        }
-        ver--;
-        if (count < 1) break;
-        for (int i = 0; i < hor; i++)
-        {
             MoveRight(position);
-            SetValue();
+            if (count < 1) break;
         }
+
+        if (firsttime) { hor++; firsttime = false; }
         hor--;
         if (count < 1) break;
-        for (int i = 0; i < ver; i++)
+        for (int i = 0; i < ver - 1; i++)
         {
-            MoveDown(position);
             SetValue();
+            MoveDown(position);
+            if (count < 1) break;
         }
         ver--;
         if (count < 1) break;
+        for (int i = 0; i < hor - 1; i++)
+        {
+            SetValue();
+            MoveLeft(position);
+            if (count < 1) break;
+        }
+        hor--;
+        if (count < 1) break;
+        for (int i = 0; i < ver - 1; i++)
+        {
+            SetValue();
+            MoveUp(position);
+            if (count < 1) break;
+        }
+        ver--;
+        if (count < 1) break;
+
     }
+
     void SetValue()
     {
         matrix[position[0], position[1]] = value;
