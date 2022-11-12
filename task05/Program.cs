@@ -7,7 +7,7 @@
 10 09 08 07
 /*/
 
-int[,] matrix = CreateMatrix(4,4);
+int[,] matrix = CreateMatrix(4, 4);
 SetSpiral(matrix);
 PrintMatrix(matrix);
 
@@ -28,7 +28,7 @@ void SetSpiral(int[,] matrix)  // пишем спираль в двумерны�
             value++;
             count--;
             MoveRight(position);
-            
+
         }
 
         if (firsttime) { horz++; firsttime = false; }
@@ -40,7 +40,7 @@ void SetSpiral(int[,] matrix)  // пишем спираль в двумерны�
             value++;
             count--;
             MoveDown(position);
-           
+
         }
         vert--;
         if (count == 1) break;
@@ -50,7 +50,7 @@ void SetSpiral(int[,] matrix)  // пишем спираль в двумерны�
             value++;
             count--;
             MoveLeft(position);
-            
+
         }
         horz--;
         if (count == 1) break;
@@ -60,13 +60,13 @@ void SetSpiral(int[,] matrix)  // пишем спираль в двумерны�
             value++;
             count--;
             MoveUp(position);
-           
+
         }
         vert--;
         if (count == 1) break;
     }
-    matrix[position[0], position[1]] = value;  
-   
+    matrix[position[0], position[1]] = value;
+
 }
 
 int[,] CreateMatrix(int m, int n) // создаем матрицу
@@ -95,19 +95,19 @@ void PrintMatrix(int[,] matrix) // отображаем матрицу
         Console.WriteLine();
     }
 }
- void MoveRight(int[] position)
-    {
-        position[1]++;
-    }
-    void MoveLeft(int[] position)
-    {
-        position[1]--;
-    }
-    void MoveUp(int[] position)
-    {
-        position[0]--;
-    }
-    void MoveDown(int[] position)
-    {
-        position[0]++;
-    }
+void MoveRight(int[] position)
+{
+    position[1]++;
+}
+void MoveLeft(int[] position)
+{
+    position[1]--;
+}
+void MoveUp(int[] position)
+{
+    position[0]--;
+}
+void MoveDown(int[] position)
+{
+    position[0]++;
+}
