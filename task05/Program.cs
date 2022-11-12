@@ -7,83 +7,67 @@
 10 09 08 07
 /*/
 
-int[,] matrix = CreateMatrix(5, 4);
+int[,] matrix = CreateMatrix(4,4);
 SetSpiral(matrix);
 PrintMatrix(matrix);
 
-void SetSpiral(int[,] matrix)
+void SetSpiral(int[,] matrix)  // пишем спираль в двумерный массив (работает и для прямоугольных массивов ;)
 {
     int[] position = { 0, 0 };
-    int hor = matrix.GetLength(1);
-    int ver = matrix.GetLength(0);
-    int count = hor*ver;
-    int value = 01;
+    int horz = matrix.GetLength(1);
+    int vert = matrix.GetLength(0);
+    int count = horz * vert;
+    int value = 1;
     bool firsttime = true;
 
     while (count > 0)
     {
-        for (int i = 0; i < hor - 1; i++)
+        for (int i = 0; i < horz - 1; i++)
         {
-            SetValue();
+            matrix[position[0], position[1]] = value;
+            value++;
+            count--;
             MoveRight(position);
-            if (count < 1) break;
+            
         }
 
-        if (firsttime) { hor++; firsttime = false; }
-        hor--;
-        if (count < 1) break;
-        for (int i = 0; i < ver - 1; i++)
+        if (firsttime) { horz++; firsttime = false; }
+        horz--;
+        if (count == 1) break;
+        for (int i = 0; i < vert - 1; i++)
         {
-            SetValue();
+            matrix[position[0], position[1]] = value;
+            value++;
+            count--;
             MoveDown(position);
-            if (count < 1) break;
+           
         }
-        ver--;
-        if (count < 1) break;
-        for (int i = 0; i < hor - 1; i++)
+        vert--;
+        if (count == 1) break;
+        for (int i = 0; i < horz - 1; i++)
         {
-            SetValue();
+            matrix[position[0], position[1]] = value;
+            value++;
+            count--;
             MoveLeft(position);
-            if (count < 1) break;
+            
         }
-        hor--;
-        if (count < 1) break;
-        for (int i = 0; i < ver - 1; i++)
+        horz--;
+        if (count == 1) break;
+        for (int i = 0; i < vert - 1; i++)
         {
-            SetValue();
+            matrix[position[0], position[1]] = value;
+            value++;
+            count--;
             MoveUp(position);
-            if (count < 1) break;
+           
         }
-        ver--;
-        if (count < 1) break;
-
+        vert--;
+        if (count == 1) break;
     }
-
-    void SetValue()
-    {
-        matrix[position[0], position[1]] = value;
-        value++;
-        count--;
-    }
-
-    void MoveRight(int[] position)
-    {
-        position[1]++;
-    }
-    void MoveLeft(int[] position)
-    {
-        position[1]--;
-    }
-    void MoveUp(int[] position)
-    {
-        position[0]--;
-    }
-    void MoveDown(int[] position)
-    {
-        position[0]++;
-    }
+    matrix[position[0], position[1]] = value;  
+   
 }
-
 
 int[,] CreateMatrix(int m, int n) // создаем матрицу
 {
@@ -111,3 +95,19 @@ void PrintMatrix(int[,] matrix) // отображаем матрицу
         Console.WriteLine();
     }
 }
+ void MoveRight(int[] position)
+    {
+        position[1]++;
+    }
+    void MoveLeft(int[] position)
+    {
+        position[1]--;
+    }
+    void MoveUp(int[] position)
+    {
+        position[0]--;
+    }
+    void MoveDown(int[] position)
+    {
+        position[0]++;
+    }
