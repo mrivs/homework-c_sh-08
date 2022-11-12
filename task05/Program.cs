@@ -7,7 +7,7 @@
 10 09 08 07
 /*/
 
-int[,] matrix = CreateMatrix(3, 3);
+int[,] matrix = CreateMatrix(4, 4);
 
 int length = matrix.GetLength(1);
 int height = matrix.GetLength(0);
