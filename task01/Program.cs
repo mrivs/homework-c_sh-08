@@ -10,8 +10,49 @@
 8 4 4 2
 /*/
 
-void SortRows(int[,] matrix){
+int[,] matrix = CreateMatrix(3, 4);
+PrintMatrix(matrix);
+Console.WriteLine();
+BinarySortRows(matrix);
+PrintMatrix(matrix);
 
+void BinarySortRows(int[,] matrix)
+{
+    int length = matrix.GetLength(1);
+    int key;
+    int j;
+    int loc;
+    for (int row = 0; row < matrix.GetLength(0); row++)
+    {
+
+        for (int col = 0; col < matrix.GetLength(1); col++)
+        {
+            j = col - 1;
+            key = matrix[row,col];
+            loc = binarySearchForSort(matrix,row, key, 0, j);
+            while (j >= loc)
+            {
+                matrix[row,j + 1] = matrix[row,j];
+                j = j - 1;
+            }
+            matrix[row,j + 1] = key;
+        }
+    }
+}
+
+int binarySearchForSort(int[,] array,int row, int item, int low, int high) // Бинарный поиск для сортировки 2 мерного массива
+{
+    while (low <= high)
+    {
+        int mid = low + (high - low) / 2;
+        if (item == array[row,mid])
+            return mid+1 ;
+        else if (item < array[row,mid])  
+            low = mid + 1;
+        else
+            high = mid - 1;
+    }
+    return low;
 }
 
 int[,] CreateMatrix(int m, int n) // создаем матрицу

@@ -28,7 +28,6 @@ void SetSpiral(int[,] matrix)  // пишем спираль в двумерны�
             value++;
             count--;
             MoveRight(position);
-
         }
 
         if (firsttime) { horz++; firsttime = false; }
@@ -40,7 +39,6 @@ void SetSpiral(int[,] matrix)  // пишем спираль в двумерны�
             value++;
             count--;
             MoveDown(position);
-
         }
         vert--;
         if (count == 1) break;
@@ -50,7 +48,6 @@ void SetSpiral(int[,] matrix)  // пишем спираль в двумерны�
             value++;
             count--;
             MoveLeft(position);
-
         }
         horz--;
         if (count == 1) break;
@@ -60,13 +57,11 @@ void SetSpiral(int[,] matrix)  // пишем спираль в двумерны�
             value++;
             count--;
             MoveUp(position);
-
         }
         vert--;
         if (count == 1) break;
     }
     matrix[position[0], position[1]] = value;
-
 }
 
 int[,] CreateMatrix(int m, int n) // создаем матрицу

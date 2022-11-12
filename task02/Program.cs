@@ -13,30 +13,29 @@
 
 Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
 /*/
-int[,]mtrx=CreateMatrix(3,3);
-int minrow=FindMinRow(mtrx);
+int[,] mtrx = CreateMatrix(3, 3);
+int minrow = FindMinRow(mtrx);
 PrintMatrix(mtrx);
 Console.WriteLine();
 Console.WriteLine($"{minrow} строка");
 
-int FindMinRow(int [,]matrix)
+int FindMinRow(int[,] matrix)
 {
-    int min=0;
-    int sum=0;
-    int number=0;
+    int min = 0;
+    int sum = 0;
+    int number = 0;
 
-
-     for (int row = 0; row < matrix.GetLength(0); row++)
+    for (int row = 0; row < matrix.GetLength(0); row++)
     {
         for (int col = 0; col < matrix.GetLength(1); col++)
         {
-           sum=sum+matrix[row,col];
+            sum = sum + matrix[row, col];
         }
-        if (row==0) {min=sum; number=row;}
-        if (min>sum) {min=sum; number=row;}
-        sum=0;
+        if (row == 0) { min = sum; number = row; }
+        if (min > sum) { min = sum; number = row; }
+        sum = 0;
     }
-return number+1;
+    return number + 1;
 }
 
 int[,] CreateMatrix(int m, int n) // создаем матрицу
